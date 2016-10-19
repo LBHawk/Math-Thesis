@@ -60,7 +60,7 @@ $B(X) = \{x_2, x_3, \dots\}$.
 % Complex modulus
 %--------------
 \begin{defn}
-Let $z \in \mathbb{C}$.  That is, let $z = x + iy$, where $x$ and $y$ are real numbers.  The \underline{absolute value} or \underline{modulus} of $z$, denoted $|z|$ is given by \[|z| = \sqrt{x^2 + y^2}.\]
+Let $z \in \mathbb{C}$.  That is, let $z = x + yi$, where $x$ and $y$ are real numbers.  The \underline{absolute value} or \underline{modulus} of $z$, denoted $|z|$ is given by \[|z| = \sqrt{x^2 + y^2}.\]
 \end{defn}
 
 %--------------
@@ -71,8 +71,36 @@ The \underline{open unit disc of $\mathbb{C}$}, denoted $\mathbb{D}$, is the reg
 \end{defn}
 
 %--------------
+% Linear transformation/operator
+%--------------
+\begin{defn}
+A mapping $T$ from a vector space $V_1$ to a vector space $V_2$, i.e. $T:V_1 \rightarrow V_2$, is a \underline{linear transformation} iff
+\[T(c\vec{u} + c\vec{v}) = cT(\vec{u}) + cT(\vec{v}),\] for all $\vec{u}, \vec{v} \in V_1$, and all $c \in \mathbb{R}$.  The transformation is referred to as an \underline{operator} if the mapping is from a vector space to itself.
+\end{defn}
+
+%--------------
+% Holomorphic/analytic function
+%--------------
+\begin{defn}
+Let $U \subset \mathbb{C}$ be open and let $f: U \rightarrow \mathbb{C}$.  If $f$ is complex differentiable at every point in $U$, $f$ is said to be \underline{holomorphic} or on $U$.
+\end{defn}
+
+%--------------
+% Pole of complex function
+%--------------
+\begin{defn}
+A function $f$ has a \underline{pole} of order $n$ at $z_0$ if $n$ is the smallest positive integer for which $(z-z_0)^nf(z)$ is holomorphic at $z_0$.  A function $f$ has a pole at infinity if $\lim_{z\rightarrow \infty} f(z) = \infty$.
+\end{defn}
+
+%--------------
 % Linear Fractional Transformation
 %--------------
 \begin{defn}
-
+A \underline{Linear Fraction Transformation} is a function of the form
+\[f(z) = \frac{az + b}{cz + d}\]
+where $a,b,c,d \in \mathbb{C}, ad \neq cb$.
 \end{defn}
+
+%--------------
+% Boundary of a circle
+%--------------

@@ -1,6 +1,54 @@
+The following result gives a geometrical description of $\varphi(\mathbb{D})$ when the pole of $\varphi$ lies outside the closed unit disc.
+
 \begin{lemma}
-Let $\varphi$ be a linear fractional transformation as in (2) and $|d| > |c|$.  Then $\varphi(\mathbb{D})$ is the disc $P+r\mathbb{D}$ with center P and radius r given by
-\[P = \frac{b\conj{d} - a\conj{c}}{|d|^2 - |c|^2}, \;r = \frac{bc - ad}{|d|^2 - |c|^2}.\]
+Let $\varphi$ be a linear fractional transformation(LFT) with $c \neq 0$ and $|d| > |c|$.  Then $\varphi(\mathbb{D})$ is the disc $P+r\mathbb{D}$ with center P and radius r given by
+\[P = \frac{b\conj{d} - a\conj{c}}{|d|^2 - |c|^2}, \;r = \frac{|bc - ad|}{|d|^2 - |c|^2}.\]
 \end{lemma}
 
-asdf
+\begin{proof}
+Note that LFTs map circles and lines to circles and lines.  Indeed, if $f$ is a LFT and $E$ is a circle or a line in $\mathbb{C}$, the image of $E$, $f(E)$, is mapped to a line if it passes through the pole.  If $E$ avoids the pole, $f(E)$ is a circle.
+
+Observe that $\overbar{\mathbb{D}} = \{z:|z| \leq 1\}$ (i.e. the closure of $\mathbb{D}$) is clearly a bounded and convex set.  Because we imposed that $|d| > |c|$, we have that $|d/c| > 1$ and so the pole at $z = -d/c$ lies outside of $\overbar{\mathbb{D}}$.  Since LFTs are conformal at every point except at the pole, $\varphi(\overbar{\mathbb{D}})$ must be bounded and convex.  Furthermore, $\varphi(\overbar{\mathbb{D}})$ is a circle whose boundary is $\varphi(\partial\mathbb{D})$, where $\partial\mathbb{D}$ denotes the boundary of $\mathbb{D}$.
+
+Now, take three distinct points in the unit circle.  We choose $z_1 = 1$, $z_2 = -1$, and $z_3 = i$ as they are three very simple points on the unit circle.  Since $\varphi$ is linear, it is also one-to-one.  Thus, $A = f(z_1)$, $B = f(z_2)$, and $C = f(z_3)$ are three distinct points.  Since $z_1$, $z_2$, and $z_3$ are on the unit circle which is equivalent to $\partial\mathbb{D}$, $A$, $B$, and $C$ are in fact three distinct points in the circle $\varphi(\partial\mathbb{D})$.  That is, circle circumscribed over $A$, $B$, and $C$ coincides with $\varphi(\partial\mathbb{D})$.
+
+To verify that $\varphi(\partial\mathbb{D})$ indeed has center $P$ and radius $r$, we just need to show that 
+\[|A-P| = |B-P| = |C-P| = r.\]
+For this, we use the equalities $|z|^2 = z\conj{z}$, and $|c + d| = |\conj{c} + \conj{d}|$.
+
+So, we have
+\begin{align*}
+|A-P| 	&= \biggl\lvert\frac{a+b}{c+d} - \frac{b\conj{d} - a\conj{c}}{|d|^2 - |c|^2}\biggr\rvert \\
+		&= \frac{1}{|d|^2 - |c|^2} \biggl\lvert\frac{(a+b)(|d|^2-|c|^2) - (b\conj{d} - a\conj{c})(c+d)}{c+d}\biggr\rvert \\
+		&= \frac{1}{|d|^2 - |c|^2} \biggl\lvert\frac{ad\conj{d} - bc\conj{c} - bc\conj{d} + ad\conj{c}}{c+d}\biggr\rvert \textrm{, by using the first equality}\\
+		&= \frac{1}{|d|^2 - |c|^2} \biggl\lvert\frac{(\conj{c}+\conj{d})(bc - ad)}{c+d}\biggr\rvert \\
+		&= \frac{1}{|d|^2 - |c|^2} \biggl(\frac{|\conj{c}+\conj{d}||bc - ad|}{|c+d|}\biggr) \\
+		&= \frac{1}{|d|^2 - |c|^2} \biggl(\frac{|c+d||bc - ad|}{|c+d|}\biggr) \textrm{, by using the second equality} \\
+		&= \frac{bc - ad}{|d|^2 - |c|^2} \\
+		&= r.
+\end{align*}
+Showing $|B-P| = r$ is analagous:
+\begin{align*}
+|B-P| 	&= \biggl\lvert\frac{-a+b}{-c+d} - \frac{b\conj{d} - a\conj{c}}{|d|^2 - |c|^2}\biggr\rvert \\
+		&= \frac{1}{|d|^2 - |c|^2} \biggl\lvert\frac{(-a+b)(|d|^2-|c|^2) - (b\conj{d} - a\conj{c})(-c+d)}{-c+d}\biggr\rvert \\
+		&= \frac{1}{|d|^2 - |c|^2} \biggl\lvert\frac{-ad\conj{d} - bc\conj{c} + bc\conj{d} + ad\conj{c}}{-c+d}\biggr\rvert \textrm{, by using the first equality}\\
+		&= \frac{1}{|d|^2 - |c|^2} \biggl\lvert\frac{(-\conj{c}+\conj{d})(bc - ad)}{-c+d}\biggr\rvert \\
+		&= \frac{1}{|d|^2 - |c|^2} \biggl(\frac{|-\conj{c}+\conj{d}||bc - ad|}{|-c+d|}\biggr) \\
+		&= \frac{1}{|d|^2 - |c|^2} \biggl(\frac{|-c+d||bc - ad|}{|-c+d|}\biggr) \textrm{, by using the second equality} \\
+		&= \frac{bc - ad}{|d|^2 - |c|^2} \\
+		&= r.
+\end{align*}
+Using a third equality, $|ci + d| = |\conj{c} + \conj{di}|$, we have
+\begin{align*}
+|C-P| 	&= \biggl\lvert\frac{ai+b}{ci+d} - \frac{b\conj{d} - a\conj{c}}{|d|^2 - |c|^2}\biggr\rvert \\
+		&= \frac{1}{|d|^2 - |c|^2} \biggl\lvert\frac{(ai+b)(|d|^2-|c|^2) - (b\conj{d} - a\conj{c})(ci+d)}{ci+d}\biggr\rvert \\
+		&= \frac{1}{|d|^2 - |c|^2} \biggl\lvert\frac{ad\conj{d}i - bc\conj{c} - bc\conj{d}i + ad\conj{c}}{ci+d}\biggr\rvert \textrm{, by using the first equality}\\
+		&= \frac{1}{|d|^2 - |c|^2} \biggl\lvert\frac{(\conj{c}+\conj{d}i)(ad-bc)}{ci+d}\biggr\rvert \\
+		&= \frac{1}{|d|^2 - |c|^2} \biggl(\frac{|\conj{c}+\conj{d}i||ad-bc|}{|ci+d|}\biggr) \\
+		&= \frac{1}{|d|^2 - |c|^2} \biggl(\frac{|ci+d||ad-bc|}{|ci+d|}\biggr) \textrm{, by using the third equality}\\
+		&= \frac{bc - ad}{|d|^2 - |c|^2} \\
+		&= r.
+\end{align*}
+
+Hence the circle circumscribed over the points $A$, $B$, and $C$ indeed has center $P$ and radius $r$.  Thus $\varphi(\mathbb{\partial\mathbb{D}})$ has center $P$ and radius $r$.  Thus $\varphi(\mathbb{D})$ is the disc $P+r\mathbb{D}$.
+\end{proof}

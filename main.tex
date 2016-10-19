@@ -3,10 +3,10 @@
 \usepackage{amsmath,amssymb,amsthm,verbatim,titling,geometry}
 \usepackage{graphicx}
 \geometry{
-    tmargin=2cm,
+    tmargin=2.5cm,
     bottom=2.5cm,
-    left=2.5cm,
-    right=2.5cm
+%    left=2.5cm,
+%    right=2.5cm
 }
 
 \newcommand{\subtitle}[1]{%
@@ -17,6 +17,7 @@
 }
 
 \newcommand*\conj[1]{\bar{#1}}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
@@ -36,6 +37,12 @@
 
 
 \maketitle
+
+\setcounter{theorem}{2}
+\section{Theorem 3}
+\input{theorem3}
+
+\setcounter{lemma}{1}
 \section{Lemma 2}
 \input{Lemma2}
 
