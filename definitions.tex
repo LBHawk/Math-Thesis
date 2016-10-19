@@ -1,0 +1,78 @@
+%--------------
+% Metric Space
+%--------------
+\begin{defn}
+A \underline{metric space} $(X,d)$ is a set $X$ and a function $d$(the distance function) which assigns a real number $d(x,y)$ to every pair $(x,y) \in X$, which satisfies the following properties :
+
+\begin{enumerate}
+\item $d(x,y) \ge 0$
+\item $d(x,y) = 0 \Rightarrow x=y$.
+\item $d(x,y) = d(y,x)$.
+\item $d(x,y) + d(y,z) \ge d(x,z)$.  This last property is called the \textit{triangle inequality}.
+\end{enumerate}
+\end{defn}
+
+%--------------
+% Topological Transitivity
+%--------------
+\begin{defn}
+A function $f$ is \underline{topologically transitive} iff for all nonempty open subsets $U, V$ of $X$, there exists $k \in \mathbb{N}$ such that $f^k(U) \cap V$ is nonempty.
+\end{defn}
+
+%--------------
+% Dense set
+%--------------
+\begin{defn}
+Let $X$ be a topological space.  A set $Q$ is \underline{dense} in $X$ if for any point $x \in X$ and for any $\epsilon > 0$, there exists a point in $q \in Q$ such that the distance between $x$ and $q$ is less than $\epsilon$.  In other words, a set $Q$ is dense in $X$ if every point in $X$ is either in $Q$ or is a limit point in $Q$.
+\end{defn}
+
+%--------------
+% Periodic point
+%--------------
+\begin{defn}
+A point x is said to be a \underline{periodic point} of a function $f$ if there exists an integer $n$ such that $f^n(x) = x$.  The least positive integer $n$ for which this is true is the period of $x$.
+\end{defn}
+
+%--------------
+% Devaney's definition of chaos
+%--------------
+\begin{defn}
+Let $(X,d)$ be a metric space.  A function $f:X \to X$ is said to be \underline{chaotic} on $X$ if it satisfies the following three conditions:
+\begin{enumerate}
+\item \textit{$f$ is topologically transitive}.  
+\item \textit{The set of periodic points in $f$ is dense in $X$}.  That is, that every open set in $f$ contains a periodic point.
+\item \textit{$f$ has sensitive dependence on initial conditions}.  That is, $\exists \delta > 0$ such that for any open set $U$ and for any $x \in U$, there exists a $y \in U$ such that $d(f^{[k]}(x), f^{[k]}(y)) > \delta$ for some k.  $\delta$ is called a \textit{sensitivity constant}.
+\end{enumerate}
+
+\end{defn}
+
+%--------------
+% Backward shift operator
+%--------------
+\begin{defn}
+A \underline{backward shift operator} $B$ operates on an element of a sequence to produce the previous element.
+
+e.g. if $X = \{x_1, x_2, \dots\}$, then
+$B(X) = \{x_2, x_3, \dots\}$.
+\end{defn}
+
+%--------------
+% Complex modulus
+%--------------
+\begin{defn}
+Let $z \in \mathbb{C}$.  That is, let $z = x + iy$, where $x$ and $y$ are real numbers.  The \underline{absolute value} or \underline{modulus} of $z$, denoted $|z|$ is given by \[|z| = \sqrt{x^2 + y^2}.\]
+\end{defn}
+
+%--------------
+% Open unit disc of C
+%--------------
+\begin{defn}
+The \underline{open unit disc of $\mathbb{C}$}, denoted $\mathbb{D}$, is the region in the complex plane defined by \[\mathbb{D} = \{z \in \mathbb{C} : |z| < 1\}.\]
+\end{defn}
+
+%--------------
+% Linear Fractional Transformation
+%--------------
+\begin{defn}
+
+\end{defn}
