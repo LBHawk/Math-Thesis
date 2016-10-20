@@ -102,5 +102,30 @@ where $a,b,c,d \in \mathbb{C}, ad \neq cb$.
 \end{defn}
 
 %--------------
-% Boundary of a circle
+% Complete vector space
 %--------------
+\begin{defn}
+A \underline{vector space} is a set that is closed under finite vector addition and scalar muliplication.  A vector space $V$ is \underline{complete} is every Cauchy sequence of points in $V$ converges to a point in $V$.
+\end{defn}
+
+%--------------
+% Normed vector space
+%--------------
+\begin{defn}
+Let $V$ be a complex vector space.  A norm on $V$ is a function
+\[||\cdot||: V \rightarrow \mathbb{R}\]
+that satisfies the following conditions:
+\begin{enumerate}
+\item $||\vec{v}|| \geq 0, \forall \vec{c} \in V, and ||\vec{v}|| = 0 \Leftrightarrow \vec{v} = 0$;
+\item $||\alpha\vec{v}|| = |\alpha|\;||\vec{v}||, \forall\vec{v} \in V, \alpha \in \mathbb{C}$;
+\item $||\vec{v} + \vec{w}|| \leq ||\vec{v}|| + ||\vec{w}||, \forall \vec{v}, \vec{w} \in V$.
+\end{enumerate}
+A vector space equipped with a norm is called a \underline{normed vector space}.
+\end{defn}
+
+%--------------
+% Banach space
+%--------------
+\begin{defn}
+A \underline{Banach space} is a complete normed vector space.
+\end{defn}

@@ -1,8 +1,25 @@
+In [10], DeLaubenfels and Emamirad showed that, for a non-constant polynomial $P(z)$, $P(B)$ (where $B$ is the backwards shift operator) is chaotic on $l^p, 1\leq p \leq \infty$ whenever $P(\mathbb{D})$ intersects the unit disc.  We provide a generalization of this result which can be applied to Linear Fractional Transformations.
+
 \begin{theorem}
 Let $\varphi$ be a LFT with $c \neq 0$ and $|d| > |c|$.  The operator $\varphi(B)$ is chaotic if and only if 
 \[\bigl\lvert |d|^2 - |c|^2 - |b\conj{d} - a\conj{c}| < |bc - ad| \bigr\rvert.\]
 \end{theorem}
 
 \begin{proof}
+We showed in Lemma 2 that $\varphi(\mathbb{D}) = P+r\mathbb{D}$ with center $P$ and radius $r$ given where
+\[P = \frac{b\conj{d} - a\conj{c}}{|d|^2 - |c|^2}, \;r = \frac{|bc - ad|}{|d|^2 - |c|^2}.\]
+Theorem 1, the Eigenvalue Criterion, showed that $\varphi(B)$ is chaotic on $l^p$ if and only if $\varphi(\mathbb{D})$ intersects the unit circle.  So, we have that $\varphi(B)$ is chaotic if and only if the disc $P+r\mathbb{D}$ intersects the unit circle.
 
+In order for the disc to intersect the unit disc, we have two possibilities: the center of the disc $P$ is contained within the unit circle, or $P$ is outside the closed unit disc.  If $P$ is inside the unit disc, then $|P| + |r| > 1$; if $P$ is outside the closed unit disc, then we must have $|P| - |r| < 1$.
+
+These conditions lead to 
+\[-|r| < 1 - |P| < |r|.\]
+After substituting in the values of $P$ and $r$, we have
+\[-\frac{|bc - ad|}{|d|^2 - |c|^2} < 1 - \biggl\lvert\frac{|b\conj{d} - a\conj{c}|}{|d|^2 - |c|^2}\biggr\rvert < \frac{|bc - ad|}{|d|^2 - |c|^2}.\]
+Multiplying by $|d|^2 - |c|^2$ gives
+\[-|bc-ad| < |d|^2 - |c|^2 - |b\conj{d} - a\conj{c} < |bc - ad|.\]
+So finally, we have
+\[\bigl\lvert|d|^2 - |c|^2 - |b\conj{d} - a\conj{c}|\bigr\rvert < |bc-ad|.\]
+
+So, we have shown that if $\varphi(B)$ is chaotic, then $\bigl\lvert|d|^2 - |c|^2 - |b\conj{d} - a\conj{c}|\bigr\rvert < |bc-ad|.$  The other direction is completely analogous.  It requires the exact same algebra, done in reverse, to show that if $\bigl\lvert|d|^2 - |c|^2 - |b\conj{d} - a\conj{c}|\bigr\rvert < |bc-ad|$, then $P+r\mathbb{D}$ intersects the unit circle, and thus $\varphi(B)$ is chaotic.
 \end{proof}

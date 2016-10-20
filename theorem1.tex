@@ -1,0 +1,11 @@
+The following is a well known criterion for chaos, known as the Eigenvalue Criterion.  [2,3] provide proofs for the Criterion, and [9,10,12,14,15] provide examples using the Criterion.
+
+\begin{theorem}
+Let $T:X \rightarrow X$ be an operator on a separable complex Banach space $X$.  Consider the subspaces
+\[X_0 := \rm{Span}\{x \in X : T(x) = \lambda X \textrm{ for some }\lambda \in \mathbb{C} with |\lambda| < 1\}, \]
+\[Y_0 := \rm{Span}\{x \in X : T(x) = \lambda X \textrm{ for some } \lambda \in \mathbb{C} with |\lambda| > 1\},\]
+\[Z_0 := \rm{Span}\{x \in X : T(x) = e^{\alpha \pi i}x \textrm{ for some } \alpha \in \mathbb{Q}\}.\]
+If $X_0, Y_0,$ and $Z_0$ are all dense in $X$, then $T$ is chaotic.
+\end{theorem}
+
+Since the set of eigenvalues $\sigma_p(B) = \mathbb{D}$ in our framework, this Criterion says that $\varphi(B)$ is chaotic on $l^p$ if and only if $\varphi(\mathbb{D})$ intersects the unit circle.
