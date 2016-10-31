@@ -1,0 +1,77 @@
+In this section we overview some elementary topological concepts about metric spaces.  Becoming comfortable with these concepts is an important step towards understanding the framework of Mungu{\`i}a \etals paper.  We specifically talk about metric spaces, norms, and the completion of metric spaces.  Finally, we touch on the concept of Banach spaces, which are particularly important in the paper.  Note that many definitions, theorems, etc. come from Gerald Edgar's \textit{Measure, Topology, and Fractal Geometry} and Kaplansky's \textit{Set Theory and Metric Spaces}.
+
+\begin{defn}
+A \textbf{metric space} is a set $S$ together with a function $d:S \times S \rightarrow [0, \infty)$ satisfying the following:
+\begin{align*}
+\textrm{(1)}\; d(x,y) &= 0 \Leftrightarrow x = y\\
+\textrm{(2)}\; d(x,y) &\geq 0 \textrm{ for all } x,y \in X\\
+\textrm{(3)}\; d(x,y) &= d(y,x)\\
+\textrm{(4)}\; d(x,z) &\leq d(x,y) + d(y,z) \textrm{ (Triangle inequality)}
+\end{align*}
+The nonnegative real number $d(x,y)$ is called the \textit{distance} between $x$ and $y$, while the function $d$ itself is known as the \textit{metric} of the set $S$.  A metric space is written as $(S, d)$, but oftentimes the metric is implied and the space is simply referred to as $S$.  
+\end{defn}
+
+\begin{example}
+The set of real numbers $\mathbb{R}$, with $d: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$ defined by
+\[d(x,y) = |x - y| \]
+is a metric space.  This is the usual metric used with $\mathbb{R}$.
+\end{example}
+
+The complex plane $\mathbb{C}$ has a similar usual metric:
+
+\begin{example}
+The complex numbers $\mathbb{C}$ with $d: \mathbb{C} \times \mathbb{C} \rightarrow \mathbb{R}$ defined by
+\[d(z,w) = |z - w| \]
+where $|z|$ is the modulus of $z$ is a metric space.
+\end{example}
+
+Generally, algebraic operations are not defined on a metric space, just a distance function.  Meanwhile, a vector space (which is not necessarily a metric space) provides the operations of vector addition and scalar multiplication, but without a notion of distance.  We can combine a vector space with a \textit{norm}, though, to create a normed vector space --- note that all normed vector spaces are also metric spaces.
+
+\begin{defn}
+A \textbf{normed vector space} $(X, ||\cdot||)$ is a vector space $X$ with a function $||\cdot||:X \rightarrow \mathbb{R}$, called a \textit{norm} on $X$, such that for all $x,y \in X$ and $k \in \mathbb{R}$:
+\begin{align*}
+&\textrm{(1)}\; ||x|| \geq 0 \textrm{ and } ||x|| = 0 \textrm{ if and only if } x=0;\\
+&\textrm{(2)}\; ||kx|| = |k|\,||x|| \textrm{ (scaling property)};\\
+&\textrm{(3)}\; ||x + y|| \leq ||x|| + ||y||.
+\end{align*}
+\end{defn}
+
+These properties are rather intuitive.  Property (1) says that a vector has nonnegative length, and the length of $x$ is 0 if and only if $x$ is the 0-vector; property (2) states multiplying a vector by a scalar $k$ multiplies its length by $k$; finally property (3) is the triangle inequality, which is analogous to property (4) of definition 3.1.
+
+While a norm is defined rather similarly to a metric, the two are not the same.  However, we often define a metric on a normed metric space using the norm.
+
+\begin{prop}
+If $(X, ||\cdot||)$ is a normed vector space $X$, then $d: X \times X \rightarrow \mathbb{R}$, defined by $d(x,y) = ||x - y||$, is a metric on $X$.
+\end{prop}
+
+The necessary properties for $d$ to be a metric follow immediately from properties (1) and (3) of a norm.  If $X$ is a normed vector space, we always use the metric associated with its norm, unless specifically stated otherwise.
+
+A metric defined on a norm has all the properties of a metric discussed earlier, as well as two more --- for all $x, y, z \in X$ and $k \in \mathbb{R}$
+\[d(x+z, y+z) = d(x+y), \qquad d(kx, ky) = |k|d(x,y).\]
+
+These properties are called \textit{translation invariance} and \textit{homogeneity}, respectively.  These properties are not included in a simple metric space because they do not even make sense in that framework --- recall that in a space which is only a metric space, we can not add points together or multiply them by scalars.
+
+While there are a variety of norms which can be used on a vector space, the \textit{Euclidean norm} is the most common and perhaps the most intuitive.
+
+\begin{example}
+On $\mathbb{R}^n$, the length of a vector $x = (x_1, x_2, ..., x_n)$ is given by
+\[||x := \sqrt{x_1^2+x_2^2+\cdots+x_n^2}.\]
+This gives the distance from the origin to the point $x$ and is known as the \textit{Euclidean norm}.  It should be familiar as it is a result of the Pythagorean theorem.
+\end{example}
+
+\begin{example}
+On $\mathbb{C}^n$, the most common norm is given by
+\[||z|| := \sqrt{|z_1|^2 + |z_2|^2 + \cdots + |z_n|^2} = \sqrt{z_1\conj{z}_1 + z_2\conj{z}_2 + \cdots + z_n\conj{z}_n}\]
+\end{example}
+
+Note that while a metric is often derived from a norm, the existence of a metric does not imply a norm --- a metric does not even necessarily need to make geometric sense.  Take for example what is known as the \textit{discrete metric}:
+
+\begin{example}
+On any set $X$, the discrete metric is defined as
+\[d(x,y)= 
+\begin{cases} 
+	0 & x=y, \\
+	1 & x \neq y.\\
+\end{cases}
+\]
+\end{example}
