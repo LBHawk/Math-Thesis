@@ -1,7 +1,11 @@
 \contentsline {section}{\numberline {1}Introduction}{1}
 \contentsline {section}{\numberline {2}Preliminaries}{2}
-\contentsline {section}{\numberline {3}Metric Spaces}{3}
-\contentsline {section}{\numberline {4}Lp-Spaces}{7}
-\contentsline {section}{\numberline {5}Chaos}{8}
-\contentsline {section}{\numberline {6}Main results}{9}
-\contentsline {section}{References}{15}
+\contentsline {subsection}{\numberline {2.1}Metric Spaces}{2}
+\contentsline {subsection}{\numberline {2.2}The Complex Plane}{10}
+\contentsline {subsection}{\numberline {2.3}Eigenvalues}{17}
+\contentsline {subsection}{\numberline {2.4}Linear Transformations}{18}
+\contentsline {section}{\numberline {3}Analytic Functions and Conformal Mappings}{19}
+\contentsline {section}{\numberline {4}$l^p$ and Banach Spaces}{20}
+\contentsline {section}{\numberline {5}Chaos}{21}
+\contentsline {section}{\numberline {6}Main results}{22}
+\contentsline {section}{References}{28}

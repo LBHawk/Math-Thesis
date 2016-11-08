@@ -1,4 +1,4 @@
-In this section we overview some elementary topological concepts about metric spaces.  Becoming comfortable with these concepts is an important step towards understanding the framework of Mungu{\`i}a \etals paper.  We specifically talk about metric spaces, norms, and the completion of metric spaces.  Finally, we touch on the concept of Banach spaces, which are particularly important in the paper.  Note that many definitions, theorems, etc. come from Gerald Edgar's \textit{Measure, Topology, and Fractal Geometry} and Kaplansky's \textit{Set Theory and Metric Spaces}.
+Here we overview some elementary topological concepts about metric spaces.  We specifically talk about metric and vector spaces, norms, and the completion of metric spaces.  Note that many definitions, theorems, etc. come from Gerald Edgar's \textit{Measure, Topology, and Fractal Geometry}\cite{Edgar} and Kaplansky's \textit{Set Theory and Metric Spaces}\cite{Kaplansky}.
 
 \begin{defn}
 A \textbf{metric space} is a set $S$ together with a function $d:S \times S \rightarrow [0, \infty)$ satisfying the following:
@@ -8,7 +8,7 @@ A \textbf{metric space} is a set $S$ together with a function $d:S \times S \rig
 \textrm{(3)}\; d(x,y) &= d(y,x)\\
 \textrm{(4)}\; d(x,z) &\leq d(x,y) + d(y,z) \textrm{ (Triangle inequality)}
 \end{align*}
-The nonnegative real number $d(x,y)$ is called the \textit{distance} between $x$ and $y$, while the function $d$ itself is known as the \textit{metric} of the set $S$.  A metric space is written as $(S, d)$, but oftentimes the metric is implied and the space is simply referred to as $S$.  
+The nonnegative real number $d(x,y)$ is called the \textit{distance} between $x$ and $y$, while the function $d$ itself is known as the \textit{metric} of the set $S$.  A metric space is written as $(S, d)$, but oftentimes the metric is implied and the space is simply referred to as $S$.  Note that the last property, the triangle inequality, is a very important property as it is used very often in proofs.
 \end{defn}
 
 \begin{example}
@@ -28,7 +28,7 @@ where $|z|$ is the modulus of $z$ is a metric space.
 Generally, algebraic operations are not defined on a metric space, just a distance function.  Meanwhile, a vector space (which is not necessarily a metric space) provides the operations of vector addition and scalar multiplication, but without a notion of distance.  We can combine a vector space with a \textit{norm}, though, to create a normed vector space --- note that all normed vector spaces are also metric spaces.
 
 \begin{defn}
-A \textbf{normed vector space} $(X, ||\cdot||)$ is a vector space $X$ with a function $||\cdot||:X \rightarrow \mathbb{R}$, called a \textit{norm} on $X$, such that for all $x,y \in X$ and $k \in \mathbb{R}$:
+A \textbf{norm} on a vector space $V$ is a function $||x||: V \rightarrow [0, \infty) \subset \mathbb{R}$ which satisfies the following:
 \begin{align*}
 &\textrm{(1)}\; ||x|| \geq 0 \textrm{ and } ||x|| = 0 \textrm{ if and only if } x=0;\\
 &\textrm{(2)}\; ||kx|| = |k|\,||x|| \textrm{ (scaling property)};\\
@@ -36,7 +36,11 @@ A \textbf{normed vector space} $(X, ||\cdot||)$ is a vector space $X$ with a fun
 \end{align*}
 \end{defn}
 
-These properties are rather intuitive.  Property (1) says that a vector has nonnegative length, and the length of $x$ is 0 if and only if $x$ is the 0-vector; property (2) states multiplying a vector by a scalar $k$ multiplies its length by $k$; finally property (3) is the triangle inequality, which is analogous to property (4) of definition 3.1.
+\begin{defn}
+A vector space $V$ together with a norm $||\cdot||$ is called a \textbf{normed vector space}, and is denoted $(V, ||\cdot||)$.
+\end{defn}
+
+The properties of a norm on a vector space are rather intuitive.  Property (1) says that a vector has nonnegative length, and the length of $x$ is 0 if and only if $x$ is the 0-vector; property (2) states multiplying a vector by a scalar $k$ multiplies its length by $k$; finally property (3) is the triangle inequality, which is analogous to property (4) of definition 3.1.
 
 While a norm is defined rather similarly to a metric, the two are not the same.  However, we often define a metric on a normed metric space using the norm.
 
@@ -51,12 +55,12 @@ A metric defined on a norm has all the properties of a metric discussed earlier,
 
 These properties are called \textit{translation invariance} and \textit{homogeneity}, respectively.  These properties are not included in a simple metric space because they do not even make sense in that framework --- recall that in a space which is only a metric space, we can not add points together or multiply them by scalars.
 
-While there are a variety of norms which can be used on a vector space, the \textit{Euclidean norm} is the most common and perhaps the most intuitive.
+While there are a variety of norms which can be used on a vector space, the \textit{Euclidean norm} is the most common for $\mathbb{R}^n$ and is perhaps the most intuitive.
 
 \begin{example}
 On $\mathbb{R}^n$, the length of a vector $x = (x_1, x_2, ..., x_n)$ is given by
-\[||x := \sqrt{x_1^2+x_2^2+\cdots+x_n^2}.\]
-This gives the distance from the origin to the point $x$ and is known as the \textit{Euclidean norm}.  It should be familiar as it is a result of the Pythagorean theorem.
+\[||x|| := \sqrt{x_1^2+x_2^2+\cdots+x_n^2}.\]
+This gives the distance from the origin to the point $x$ and is known as the \textit{Euclidean norm}.  This should be familiar as it is the "straight-line" distance between points in space and is a result of the Pythagorean theorem.
 \end{example}
 
 \begin{example}
@@ -75,3 +79,69 @@ On any set $X$, the discrete metric is defined as
 \end{cases}
 \]
 \end{example}
+
+The discrete metric above does not satisfy the homogeneity property we briefly discussed earlier, so we know this metric was not induced by a norm.  However, if the metric of a metric space $V$ satisfies both the homogeneity and translation invariance properties, the metric $d$ can be used to define a norm $||\cdot||$ by
+\[||x|| = d(x,0)\]
+for all $x \in V$.
+
+We now move on to a final important aspect of metric spaces: completeness of metric spaces and the completion of metric spaces.  First, we review a couple concepts about sequences.
+
+\begin{defn}
+A \textbf{sequence} is a function whose domain is a set of the form $\{n \in \mathbb{Z} : n \geq m\}$ for some $m \in \mathbb{Z}$.  A sequence is denoted $(s_n)_{n=m}^\infty$ or just $(s_n)$.
+\end{defn}
+
+\begin{example}
+The following are a couple examples of sequences:
+\begin{itemize}
+\item Let $s_n = \frac{1}{n^2}, n\geq 1$.  Then, $(s_n) = (1, \frac{1}{4}, \frac{1}{9}, , \frac{1}{16}, \dots)$.
+\item Let $s_n = \frac{1}{2}(1 + (-1)^n), n \geq 1$.  Then, $(s_n) = (0,1,0,1,\dots)$.
+\end{itemize}
+\end{example}
+
+\begin{defn}
+A sequence $(s_n)$ \textbf{converges} to a point $s$ provided that, for every $\epsilon \geq 0$, there exists an $N$ such that
+\[n > N \Rightarrow d(x_n, s) < \epsilon.\]
+This point $s$ is called the \textit{limit} of the sequence.  We denote the limit as $\lim(s_n) = s$.
+\end{defn}
+
+Essentially, a sequence converges to a point $s$ if, after some point in the sequence, all the terms are arbitrarily close to the limit.
+
+\begin{defn}
+Let $(X,d)$ be a metric space.  A sequence $(x_n)_{n=1}^\infty$ in $X$ is a \textbf{Cauchy sequence} if, for every $\epsilon > 0$, there exists an $N$ such that
+\[n,m \geq N \Rightarrow d(x_n, x_m) < \epsilon.\]
+\end{defn}
+
+The definition of a Cauchy sequence is very close to that of a convergent sequence --- a Cauchy sequence, though, says that beyond some point in the sequence, all the terms are arbitrarily close to one another.  The two are closely related, and in fact imply one another.
+
+\begin{theorem}
+A sequence converges if and only if it is Cauchy.
+\end{theorem}
+
+The idea here is that, if a sequence converges, all the terms are eventually close to the same limit.  Since the terms are all close to the same limit, they are also very close to one another.  The same reasoning can be used to show that all Cauchy sequences converge.  We provide here a short proof for the forward direction.  Note the use of the triangle inequality property of metric spaces to prove this result.
+
+\begin{proof}
+We show that all convergent sequences are Cauchy.\\
+Let $s = \lim(S_n)$.  Let $\epsilon > 0$.  Since $\lim(s_n) = s$, there exists $N$ for which $n > N \Rightarrow d(s_n, s) < \frac{\epsilon}{2}$.  So suppose $m,n > N$.  Then \begin{align*}
+d(s_n, s_m) &\leq d(s_n, s) + d(s, s_m)\\
+&< \frac{\epsilon}{2} + \frac{\epsilon}{2}\\
+&= \epsilon.
+\end{align*}
+Thus by definition $(s_n)$ is Cauchy.
+\end{proof}
+
+\begin{defn}
+A metric space $(X, d)$ is called \textbf{complete} if every Cauchy sequence in $X$ converges to some point in $X$.
+\end{defn}
+
+\begin{example}
+Consider the sets $\mathbb{Q}, \mathbb{R}, \mathbb{C}$:
+\begin{itemize}
+\item The metric space $(\mathbb{Q}, d)$ where $d(x,y) = |x - y|$ (the usual metric for $\mathbb{Q}$) is not complete.  This is because there are sequences in $\mathbb{Q}$ which converge to irrational limits.  For example, 
+\[(s_n) = \biggl ( 1 + \frac{1}{n} \biggr )^n\]
+converges to $e$ which is not in $\mathbb{Q}$.
+
+\item The metric spaces $(\mathbb{R}, d_1)$ and $(\mathbb{C}, d_2)$ with their usual metrics $d_1$ and $d_2$ respectively, are both complete.
+\end{itemize}
+\end{example}
+
+Note that complete normed vector spaces are a special subset of metric spaces, known as \textit{Banach Spaces}.  Banach Spaces have several special properties and are an important concept in Jim{\`e}nez-Munguia \etals paper.  We discuss Banach Spaces in-depth in a later section of this paper.
