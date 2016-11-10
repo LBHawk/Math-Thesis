@@ -4,7 +4,7 @@
 \contentsline {subsection}{\numberline {2.2}The Complex Plane}{10}
 \contentsline {subsection}{\numberline {2.3}Eigenvalues}{17}
 \contentsline {subsection}{\numberline {2.4}Linear Transformations}{18}
-\contentsline {section}{\numberline {3}Analytic Functions and Conformal Mappings}{19}
+\contentsline {section}{\numberline {3}Holomorphic Functions and Conformal Mappings}{19}
 \contentsline {section}{\numberline {4}$l^p$ and Banach Spaces}{20}
 \contentsline {section}{\numberline {5}Chaos}{21}
 \contentsline {section}{\numberline {6}Main results}{22}
