@@ -1,0 +1,78 @@
+The main results from \cite{main} which we are exploring in this paper deal with a special type of space called a \textit{Banach space} --- recall we very briefly mentioned Banach spaces at the end of section 2.1.  We now explore this concept more in-depth, as well as a class of metric spaces known as \textit{$l^p$-spaces} which are a subset of Banach spaces.
+
+\begin{defn}
+A normed vector space $(V, ||\cdot||)$ is called a \textbf{Banach space} if and only if $V$ is complete in the metric induced from the norm.
+\end{defn}
+
+Our first example of a Banach space requires a result known as the Bolzano-Weierstrass theorem to prove completeness.
+
+\begin{theorem}[Bolzano-Weierstrass]
+Every bounded sequence has a convergent subsequence.
+\end{theorem}
+
+\begin{proof}
+Suppose $(s_n)$ is a bounded sequence.  By Theorem 2.14, $(s_n)$ has a monotonic subsequence, $(s_{n_k})$.  Since $(s_n)$ is a bounded sequence, $(s_{n_k})$ is bounded as well.  Since all bounded monotonic subsequences converge, we have that $(s_{n_k})$ converges.
+\end{proof}
+
+We now have all the necessary tools in order to easily show certain spaces are complete.
+
+\begin{example}
+Consider the normed vector spaces $\mathbb{Q}, \mathbb{R}, \mathbb{C}$.
+\begin{itemize}
+\item $\mathbb{R}$ with the standard Euclidean norm is a Banach space \cite{nthubanach}. 
+
+We already know that $\mathbb{R}$ is a normed vector space.  So to prove it is a Banach space, we must show it is complete.  That is, we must show that every Cauchy sequence in $\mathbb{R}$ converges to a point in $\mathbb{R}$.  This follows immediately from three previous theorems.  First, note every Cauchy sequence is bounded (Theorem 2.17).  By Bolzano-Weierstrass, every bounded sequence in $\mathbb{R}$ has a convergent subsequence (with limit in $\mathbb{R}$).  Finally, if a subsequence of a Cauchy sequence converges, then the whole sequence converges to the same point (Theorem 2.19).  Thus $\mathbb{R}$ is complete, and is hence a Banach space.
+
+\item $\mathbb{C}$ with its standard norm is a Banach space.  Indeed, if $(z_n) = (x_n) + i(y_n)$ is Cauchy in $\mathbb{C}$, then $(x_n)$ and $(y_n)$ are Cauchy in $\mathbb{R}$.  Since $\mathbb{R}$ is complete, we have $(x_n)$ converges to $x$ and $(y_n)$ converges to $y$, $x, y \in \mathbb{R}$.  Thus we have that $(z_n)$ converges to $z = x + iy$.  Hence $\mathbb{C}$ is complete and is thus a Banach space.
+
+\item The metric space $(\mathbb{Q}, d)$ with its usual metric is not complete.  This is because there are Cauchy sequences in $\mathbb{Q}$ which converge to irrational limits.  For example, 
+\[(s_n) = \biggl ( 1 + \frac{1}{n} \biggr )^n\]
+is contained in $\mathbb{Q}$, but converges to $e$ which is not in $\mathbb{Q}$.
+\end{itemize}
+\end{example}
+
+Now we will provide a criterion for completion of a normed space in terms of series.
+
+\begin{defn}
+There are a number of terms we must define for series.
+\begin{itemize}
+\item If $(E, ||\cdot||)$ is a normed space then a \textbf{series} in $E$ is just the summation a sequence $(x_n)$ of terms $x_n \in E$ denoted \[\sum_{k=m}^{n}x_n\];
+\item The sum 
+\[s_n = \sum_{k=m}^{n}x_n\]
+is called the \textbf{$n$th partial sum} of the series;
+\item The series \textbf{converges} if the sequence of partial sums has a limit.  That is, if there exists $s \in E$ such that
+\[\lim_{n \rightarrow \infty} \biggl|\biggl|\biggl(\sum_{k=m}^{n}x_k\biggr) - s\biggr|\biggr| = 0.\]
+If the sequence of partial sums has no limit in $E$, we say the series \textbf{diverges};
+\item We say a series $\sum_{n=m}^\infty x_n$ is \textbf{absolutely convergent} if $\sum_{n=m}^\infty ||x_n|| < \infty$.  This is because $\sum_{n=m}^\infty ||x_n||$ is the summation of a series of real positive terms, so the sequence of partial sums either converges in $\mathbb{R}$ or increases to $\infty$.
+\end{itemize}
+\end{defn}
+
+\begin{defn}
+A series satisfies the \textbf{Cauchy criterion} if its sequence of partial sums forms a Cauchy sequence.
+\end{defn}
+
+\begin{lemma}
+A series converges if and only if it satisfies the Cauchy criterion.  That is, a series converges
+\end{lemma}
+
+\begin{align*}
+\textrm{This is }&\textrm{true because } \sum x_n \textrm{ satisfies the Cauchy criterion}\\
+&\textrm{iff } (s_n) \textrm{ is a Cauchy sequence}\\
+&\textrm{iff } \forall\epsilon > 0, \exists N \textrm{ for which } n,m > N \textrm{ implies } d(s_n, s_m) < \epsilon\\
+&\textrm{iff } \forall\epsilon > 0, \exists N \textrm{ for which } n>m > N \textrm{ implies } d(s_n, s_m) < \epsilon\\
+&\textrm{iff } \forall\epsilon > 0, \exists N \textrm{ for which } n\geq m > N \textrm{ implies } d(s_n, s_{m-1}) < \epsilon\\
+&\textrm{iff } \forall\epsilon > 0, \exists N \textrm{ for which } n,m > N \textrm{ implies } \bigl|\sum_{k=m}^{n}x_n\bigr| < \epsilon\\
+\end{align*}
+
+
+\begin{theorem}[Series criterion for completion]
+Let $(E, ||\cdot||)$ be a normed vector space.  Then $E$ is complete (and thus is a Banach space) if and only if each absolutely convergent series $\sum_{n=1}^\infty x_n$ of terms $x_n \in E$ is convergent in $E$.
+\end{theorem}
+
+
+
+We now look at a special family of Banach spaces known as $l^p$-spaces.
+
+\begin{defn}
+
+\end{defn}

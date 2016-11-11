@@ -1,7 +1,7 @@
 Here we overview some elementary topological concepts about metric spaces.  We specifically talk about metric and vector spaces, norms, and the completion of metric spaces.  Note that many definitions, theorems, etc. come from Gerald Edgar's \textit{Measure, Topology, and Fractal Geometry}\cite{Edgar} and Kaplansky's \textit{Set Theory and Metric Spaces}\cite{Kaplansky}.
 
 \begin{defn}
-A \textbf{metric space} is a set $S$ together with a function $d:S \times S \rightarrow [0, \infty)$ satisfying the following:
+A \textbf{metric space} is a set $S$ together with a function $d:S \times S \textrm{ if and only if } [0, \infty)$ satisfying the following:
 \begin{align*}
 \textrm{(1)}\; d(x,y) &= 0 \Leftrightarrow x = y\\
 \textrm{(2)}\; d(x,y) &\geq 0 \textrm{ for all } x,y \in X\\
@@ -76,13 +76,10 @@ On any set $X$, the discrete metric is defined as
 	1 & x \neq y.\\
 \end{cases}
 \]
+The discrete metric does not satisfy the homogeneity property we briefly discussed earlier, so we know this metric was not induced by a norm.
 \end{example}
 
-The discrete metric above does not satisfy the homogeneity property we briefly discussed earlier, so we know this metric was not induced by a norm.  However, if the metric of a metric space $V$ satisfies both the homogeneity and translation invariance properties, the metric $d$ can be used to define a norm $||\cdot||$ by
-\[||x|| = d(x,0)\]
-for all $x \in V$.
-
-We now move on to a final important aspect of metric spaces: completeness of metric spaces and the completion of metric spaces.  First, we review a couple concepts about sequences.
+We now review a couple concepts about sequences in a metric space.  Many of the definitions and proofs in the rest of this section are based on excerpts from a real analysis textbook\cite{Abbott}, which we have adapted for the more general case of metric spaces.
 
 \begin{defn}
 A \textbf{sequence} is a function whose domain is a set of the form $\{n \in \mathbb{Z} : n \geq m\}$ for some $m \in \mathbb{Z}$.  A sequence is denoted $(s_n)_{n=m}^\infty$ or just $(s_n)$.
@@ -97,12 +94,39 @@ The following are a couple examples of sequences:
 \end{example}
 
 \begin{defn}
-A sequence $(s_n)$ \textbf{converges} to a point $s$ provided that, for every $\epsilon \geq 0$, there exists an $N$ such that
-\[n > N \Rightarrow d(x_n, s) < \epsilon.\]
+A sequence $(s_n)$  is \textit{nondecreasing} if $s_n \leq s_{n+1}$ for all $n$.  A sequence $(s_n)$  is \textit{nonincreasing} if $s_n \geq s_{n+1}$ for all $n$.  We call a sequence \textbf{monotonic} if it is either nonincreasing or nondecreasing.
+\end{defn}
+
+\begin{defn}
+A sequence $(s_n)$ is \textbf{bounded} if there exists a number $M$ for which $||s_n|| < M$ for all $n$.
+\end{defn}
+
+\begin{example}
+We provide a few examples of bounded and/or monotonic sequences:
+\begin{itemize}
+\item Let $s_n = \frac{1}{n^2}, n\geq 1$.  Then $(s_n)$ is both bounded and monotonic.
+\item Let $s_n = \frac{1}{2}(1 + (-1)^n), n \geq 1$.  Then $(s_n)$ is bounded but not monotonic.
+\item Let $s_n = n$.  Then $(s_n)$ is monotonic but unbounded.
+\end{itemize}
+\end{example}
+
+\begin{theorem}
+Every sequence has a monotonic subsequence.
+\end{theorem}
+
+The formal proof of this result is far more involved than what is necessary to understand why this is true.  As such, we only outline the general idea of how to construct such a subsequence in a very informal proof.
+
+\begin{proof}[Informal proof]
+Let $(s_n)_{n=1}^\infty$ be any sequence.  Define a term $s_n$ to be \textbf{dominant} if $s_n > s_m$ for all $m>n$.  Now, if $(s_n)$ has infinitely many dominant terms, we can construct a subsequence solely of dominant terms which is nonincreasing.  Similarly, if $(s_n)$ has a finite number of dominant terms, we can construct a subsequence solely out of terms beyone the last dominant term which is nondecreasing.  Thus, we can construct a monotonic subsequence for every sequence.
+\end{proof}
+
+\begin{defn}
+A sequence $(s_n)$ \textbf{converges} to a point $s$ provided that, for every $\epsilon \geq 0$, there exists an $N$ such that if
+\[n > N \textrm{ then } d(x_n, s) < \epsilon.\]
 This point $s$ is called the \textit{limit} of the sequence.  We denote the limit as $\lim(s_n) = s$.
 \end{defn}
 
-Essentially, a sequence converges to a point $s$ if, after some point in the sequence, all the terms are arbitrarily close to the limit.
+Essentially, a sequence converges to a point $s$ if, after some point in the sequence, all the terms are arbitrarily close to the limit.  We do not provide a proof, but note that all bounded monotonic sequences converge.  Specifically, if a sequence is nondecreasing and bounded, it will converge to the smallest number that bounds it.  Similarly, if a sequence is nonincreasing and bounded, it will converge to the largest number which bounds it.
 
 \begin{defn}
 Let $(X,d)$ be a metric space.  A sequence $(x_n)_{n=1}^\infty$ in $X$ is a \textbf{Cauchy sequence} if, for every $\epsilon > 0$, there exists an $N$ such that
@@ -112,10 +136,10 @@ Let $(X,d)$ be a metric space.  A sequence $(x_n)_{n=1}^\infty$ in $X$ is a \tex
 The definition of a Cauchy sequence is very close to that of a convergent sequence --- a Cauchy sequence, though, says that beyond some point in the sequence, all the terms are arbitrarily close to one another.  The two are closely related, and in fact imply one another.
 
 \begin{theorem}
-A sequence converges if and only if it is Cauchy.
+Convergent sequences are Cauchy.
 \end{theorem}
 
-The idea here is that, if a sequence converges, all the terms are eventually close to the same limit.  Since the terms are all close to the same limit, they are also very close to one another.  The same reasoning can be used to show that all Cauchy sequences converge.  We provide here a short proof for the forward direction.  Note the use of the triangle inequality property of metric spaces to prove this result.
+The idea here is that, if a sequence converges, all the terms are eventually close to the same limit.  Since the terms are all close to the same limit, they are also very close to one another.  In the following proof, note the use of the triangle inequality property of metric spaces.
 
 \begin{proof}
 We show that all convergent sequences are Cauchy.\\
@@ -127,19 +151,38 @@ d(s_n, s_m) &\leq d(s_n, s) + d(s, s_m)\\
 Thus by definition $(s_n)$ is Cauchy.
 \end{proof}
 
-\begin{defn}
-A metric space $(X, d)$ is called \textbf{complete} if every Cauchy sequence in $X$ converges to some point in $X$.
-\end{defn}
+We can also easily show that all Cauchy sequences are bounded.  Also, since all convergent sequences are Cauchy, we can say that all convergent sequences are bounded as well.  This fact can be combined with the \textit{Bolzano-Weierstrass Theorem} which states every bounded sequence has a convergent subsequence --- we will introduce Bolzano-Weierstrass more formally when we need it later.
 
-\begin{example}
-Consider the sets $\mathbb{Q}, \mathbb{R}, \mathbb{C}$:
-\begin{itemize}
-\item The metric space $(\mathbb{Q}, d)$ where $d(x,y) = |x - y|$ (the usual metric for $\mathbb{Q}$) is not complete.  This is because there are sequences in $\mathbb{Q}$ which converge to irrational limits.  For example, 
-\[(s_n) = \biggl ( 1 + \frac{1}{n} \biggr )^n\]
-converges to $e$ which is not in $\mathbb{Q}$.
+\begin{theorem}
+Every Cauchy sequence is bounded.
+\end{theorem}
 
-\item The metric spaces $(\mathbb{R}, d_1)$ and $(\mathbb{C}, d_2)$ with their usual metrics $d_1$ and $d_2$ respectively, are both complete.
-\end{itemize}
-\end{example}
+\begin{proof}
+Suppose $(s_n)$ is a Cauchy sequence.  Then there exists an $N \in \mathbb{N}$ for which $||s_n - s_m|| < 1$.  In particular, if $n>N$, then $||s_n - s_{N-1}|| < 1$ (since $N+1$ is obviously greater than $N$).  Therefore, if $n>N$, then
+\begin{align*}
+||s_n|| &= ||s_n - s_{N+1} + s_{N+1}||\\
+&\leq ||s_n - s_{N+1}|| + ||s_{N+1}||\\
+&< 1 + ||s_{N+1}||.
+\end{align*}
+Now, let $M = \textrm{max}\{||s_1||, ||s_2||, \cdots, ||s_N||, 1 + ||s_{N+1}||\}.$  Note that we know $M$ exists since the set is finite.  Observe that if $1 \leq n \leq N$ then $||s_n|| \leq M$.  If $n > N$, we have $||s_n|| < 1 + ||s_{N+1}|| \leq M$.  So by definition, $(s_n)$ is bounded, specifically bounded by $M$.
+\end{proof}
 
-Note that complete normed vector spaces are a special subset of metric spaces, known as \textit{Banach Spaces}.  Banach Spaces have several special properties and are an important concept in Jim{\`e}nez-Munguia \etals paper.  We discuss Banach Spaces in-depth in a later section of this paper.
+\begin{theorem}
+If a subsequence of a Cauchy sequence converges to $s$, then the whole sequence converges to $s$.
+\end{theorem}
+
+\begin{proof}
+Let $(X,d)$ be a metric space.  Suppose $(s_n)$ is a Cauchy sequence with subsequence $(s_{n_k})$ which converges to $s$.  We show $(s_n)$ also converges to $s$.  Let $\epsilon > 0$ and pick $N > 0$ such that for all $n,m > N$, we have
+\[d(s_n, s_m) < \frac{\epsilon}{2}.\]
+Since $(s_{n_k})$ converges to $s$, we can pick $K > 0$ such that for all $n_k > K$, we have
+\[d(s_{n_k},s) < \frac{\epsilon}{2}.\]
+Now let $M = \textrm{ max}\{N,K\}$.  Then, for all $n, m, n_k > M$, we have
+\begin{align*}
+d(s_n,s) &\leq d(s_n, s_{n_k}) + d(s_{n_k}, s)\\
+&< \frac{\epsilon}{2} + \frac{\epsilon}{2}\\
+&= \epsilon.
+\end{align*}
+Thus $(s_n)$ converges to $s$ as desired.
+\end{proof}
+
+These concepts will be used later on in the section on Banach spaces in order to prove a property of metric spaces called \textit{completeness}.
