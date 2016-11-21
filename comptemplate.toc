@@ -6,6 +6,6 @@
 \contentsline {subsection}{\numberline {2.4}Linear Transformations}{19}
 \contentsline {section}{\numberline {3}Analytic Functions and Conformal Mappings}{20}
 \contentsline {section}{\numberline {4}Banach and $l^p$ Spaces}{21}
-\contentsline {section}{\numberline {5}Chaos}{25}
-\contentsline {section}{\numberline {6}Main results}{26}
-\contentsline {section}{References}{32}
+\contentsline {section}{\numberline {5}Chaos}{34}
+\contentsline {section}{\numberline {6}Main results}{35}
+\contentsline {section}{References}{41}
